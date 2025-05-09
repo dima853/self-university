@@ -69,9 +69,9 @@ const SelfUniversityHome = () => {
   });
 
   // Параллакс эффекты для разных слоев
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const middlegroundY = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const foregroundY = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  // const foregroundY = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
   // Переходы между слайдами
   const firstSlideOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
@@ -201,7 +201,7 @@ const SelfUniversityHome = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  THE ULTIMATE PROGRAMMER'S UNIVERSITY WHERE ALGORITHMS MEET ART
+                  THE ULTIMATE PROGRAMMER`S UNIVERSITY WHERE ALGORITHMS MEET ART
                 </motion.p>
               </ParallaxLayer>
 
