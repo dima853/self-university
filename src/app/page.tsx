@@ -26,21 +26,22 @@ const BINARY_LINES = Array.from({ length: 20 }).map((_, i) => ({
 // Компонент шумного фона в стиле Framer
 const NoiseBackground = () => (
   <div className="fixed inset-0 overflow-hidden pointer-events-none">
-    <svg className="absolute inset-0 w-full h-full opacity-[5%]">
+    <svg className="absolute inset-0 w-full h-full opacity-[10%]"> {/* Увеличил opacity до 10% */}
       <filter id="noise">
         <feTurbulence
           type="fractalNoise"
-          baseFrequency="0.8"
-          numOctaves="4"
+          baseFrequency="0.9"
+          numOctaves="2"
           stitchTiles="stitch"
         />
-        <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 150 -50" />
+        <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 200 -70" /> {/* Подстроил значения feColorMatrix для большего контраста */}
       </filter>
       <rect width="100%" height="100%" filter="url(#noise)" />
     </svg>
     <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70" />
   </div>
 );
+
 
 // Компонент параллакс слоя
 const ParallaxLayer = ({ children, speed = 1, className = '' }) => {
@@ -160,7 +161,7 @@ const SelfUniversityHome = () => {
                     </motion.a>
                   ))}
                 </nav>
-                <Button variant="ghost" className="font-mono border border-white/20 hover:bg-white/10">
+                <Button variant="ghost" className="font-mono border border-white/20 ">
                   APPLY NOW
                 </Button>
               </div>
@@ -234,6 +235,7 @@ const SelfUniversityHome = () => {
             className="fixed inset-0 flex items-center justify-center bg-black/90"
           >
             <div className="container mx-auto px-4">
+              <NoiseBackground />
               <ParallaxLayer speed={0.4}>
                 <motion.h2
                   className="text-4xl md:text-6xl font-bold mb-12 text-center font-mono"
@@ -268,7 +270,7 @@ const SelfUniversityHome = () => {
                           >
                             {item.icon}
                           </motion.div>
-                          <CardTitle className="font-mono">{item.title}</CardTitle>
+                          <CardTitle className="font-mono text-white">{item.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
                           <CardDescription className="text-white/70">
@@ -292,6 +294,7 @@ const SelfUniversityHome = () => {
             className="fixed inset-0 flex items-center justify-center bg-black/90"
           >
             <div className="container mx-auto px-4">
+              <NoiseBackground />
               <div className="relative h-[80vh]">
                 <ParallaxLayer speed={0.3}>
                   <h3 className="text-4xl font-mono mb-8 text-center">MATH_IS_BEAUTIFUL</h3>
@@ -389,6 +392,7 @@ const SelfUniversityHome = () => {
           className="relative z-10 bg-black/90 border-t border-white/10 py-12 backdrop-blur-sm"
         >
           <div className="container mx-auto px-4">
+            <NoiseBackground />
             <ParallaxLayer speed={0.3}>
               <div className="flex flex-col md:flex-row justify-between items-start gap-12">
                 <div>
@@ -397,7 +401,7 @@ const SelfUniversityHome = () => {
                     <span className="text-xl font-mono font-bold">SELF_UNIVERSITY</span>
                   </div>
                   <p className="text-white/60 font-mono max-w-md">
-                    Redefining technical education through radical innovation since 2023.
+                    deep learning cryptography & cybersecurity
                   </p>
                 </div>
 
@@ -448,10 +452,10 @@ const SelfUniversityHome = () => {
                   © {new Date().getFullYear()} Self University. All code is open source.
                 </p>
                 <div className="flex space-x-6 mt-4 md:mt-0">
-                  <Button variant="ghost" size="sm" className="text-white/50 hover:text-white font-mono">
+                  <Button variant="ghost" size="sm" className="text-white/50 font-mono">
                     Privacy Policy
                   </Button>
-                  <Button variant="ghost" size="sm" className="text-white/50 hover:text-white font-mono">
+                  <Button variant="ghost" size="sm" className="text-white/50 font-mono">
                     Terms of Use
                   </Button>
                 </div>
